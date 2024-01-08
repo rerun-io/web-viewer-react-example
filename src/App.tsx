@@ -18,8 +18,8 @@ export default function App() {
   const [selected, setSelected] = React.useState([] as string[]);
   return (
     <div>
-      <WebViewer rrd={selected} />
       <Select isMulti options={options} onChange={(e) => setSelected(e.map((v) => v.value))} />
+      <WebViewer rrd={selected} />
     </div>
   );
 }
