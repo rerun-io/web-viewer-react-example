@@ -17,10 +17,10 @@ const options = [
 export default function App() {
   const [selected, setSelected] = React.useState([] as string[]);
   return (
-    <div>
+    <>
       <Select isMulti options={options} onChange={(e) => setSelected(e.map((v) => v.value))} />
-      <WebViewer rrd={selected} />
-    </div>
+      <WebViewer width="100%" height="100%" rrd={selected} hide_welcome_screen />
+    </>
   );
 }
 

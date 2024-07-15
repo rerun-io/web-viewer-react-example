@@ -9,7 +9,8 @@ body {
 
 /* Allow canvas to fill entire web page: */
 html,
-body {
+body,
+#root {
   overflow: hidden;
   margin: 0 !important;
   padding: 0 !important;

@@ -1,5 +1,8 @@
 import react from "@vitejs/plugin-react-swc";
 import wasm from "vite-plugin-wasm";
+import { searchForWorkspaceRoot } from "vite";
+import fs from "node:fs";
+import path from "node:path";
 
 const reloadOnSave = {
   name: "full-reload-always",
@@ -13,8 +16,21 @@ const reloadOnSave = {
 /** @type {import("vite").UserConfig} */
 const config = {
   plugins: [react(), wasm(), reloadOnSave],
+  optimizeDeps: {
+    exclude: process.env.NODE_ENV === "production" ? [] : ["@rerun-io/web-viewer"],
+  },
   build: {
     target: "esnext",
+  },
+  server: {
+    fs: {
+      allow: [
+        searchForWorkspaceRoot(process.cwd()),
+        // NOTE: hack to allow `new URL("file://...")` in `web-viewer` when it is a linked package
+        fs.realpathSync(path.join(__dirname, "node_modules", "@rerun-io/web-viewer")),
+        fs.realpathSync(path.join(__dirname, "node_modules", "@rerun-io/web-viewer-react")),
+      ],
+    },
   },
 };
 
