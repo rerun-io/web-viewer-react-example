@@ -5,12 +5,12 @@ import Select from "react-select";
 const options = [
   {
     label: "arkit scenes",
-    value: "https://app.rerun.io/version/nightly/examples/arkit_scenes.rrd",
+    value: "https://app.rerun.io/version/0.20.3/examples/arkit_scenes.rrd",
   },
-  { label: "helix", value: "https://app.rerun.io/version/nightly/examples/dna.rrd" },
+  { label: "helix", value: "https://app.rerun.io/version/0.20.3/examples/dna.rrd" },
   {
     label: "structure from motion",
-    value: "https://app.rerun.io/version/nightly/examples/structure_from_motion.rrd",
+    value: "https://app.rerun.io/version/0.20.3/examples/structure_from_motion.rrd",
   },
 ];
 
