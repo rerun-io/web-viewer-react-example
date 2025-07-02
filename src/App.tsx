@@ -12,6 +12,10 @@ const options = [
     label: "structure from motion",
     value: "https://app.rerun.io/version/0.20.3/examples/structure_from_motion.rrd",
   },
+  {
+    label: "grpc",
+    value: "rerun+http://127.0.0.1:9876/proxy",
+  },
 ];
 
 export default function App() {
